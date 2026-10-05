@@ -1,0 +1,3 @@
+import React from "react";
+import { Outlet, Link } from 'react-router-dom';
+export default function PublicLayout(){return <div className="public-shell"><header className="public-nav"><Link to="/" className="brand public-brand"><div className="brand-mark">CB</div><div><strong>Civic<span>Bridge</span></strong><small>Benefit Navigator</small></div></Link><div className="public-links"><Link to="/login" className="btn btn-primary btn-small">Sign in</Link></div></header><Outlet/><footer className="public-footer"><span>© 2026 CivicBridge</span><span>Informational platform · Government decisions remain with the relevant authority.</span></footer></div>}

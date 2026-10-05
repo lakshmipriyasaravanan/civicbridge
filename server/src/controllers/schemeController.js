@@ -1,0 +1,3 @@
+import Scheme from '../models/Scheme.js';
+export async function getSchemes(req,res,next){try{const {q,category}=req.query;const filter={};if(category&&category!=='All')filter.category=category;if(q)filter.$or=[{name:new RegExp(q,'i')},{benefit:new RegExp(q,'i')},{department:new RegExp(q,'i')},{tags:new RegExp(q,'i')}];res.json(await Scheme.find(filter).sort({demoMatch:-1}).lean())}catch(e){next(e)}}
+export async function getSchemeById(req,res,next){try{const item=await Scheme.findById(req.params.id).lean();if(!item)return res.status(404).json({message:'Scheme not found'});res.json(item)}catch(e){next(e)}}
